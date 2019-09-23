@@ -15,8 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 from . import base  # noqa
-from . import api  # noqa
-from . import core  # noqa
+from . import api  # noqafrom . import core  # noqa
 from . import sql_lab  # noqa
 from . import dashboard  # noqa
 from . import annotations  # noqa

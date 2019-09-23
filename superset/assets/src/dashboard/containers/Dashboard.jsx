@@ -39,7 +39,7 @@ function mapStateToProps(state) {
     dashboardLayout,
     impressionId,
   } = state;
-
+console.log("xjliang ......dashboardState.....1 : "+ JSON.stringify(dashboardState))
   return {
     initMessages: dashboardInfo.common.flash_messages,
     timeout: dashboardInfo.common.conf.SUPERSET_WEBSERVER_TIMEOUT,
@@ -59,6 +59,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+  console.log("xjliang ...........2")
   return {
     actions: bindActionCreators(
       {

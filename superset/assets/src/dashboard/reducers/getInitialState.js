@@ -41,7 +41,7 @@ import {
 } from '../util/componentTypes';
 
 export default function(bootstrapData) {
-  const { user_id, datasources, common, editMode } = bootstrapData;
+  const { user_id, datasources, common, editMode, forMatrix } = bootstrapData;
 
   const dashboard = { ...bootstrapData.dashboard_data };
   let filters = {};
@@ -217,6 +217,7 @@ export default function(bootstrapData) {
       colorNamespace: dashboard.metadata.color_namespace,
       colorScheme: dashboard.metadata.color_scheme,
       editMode: dashboard.dash_edit_perm && editMode,
+      forMatrix: forMatrix,
       isPublished: dashboard.published,
       builderPaneType:
         dashboard.dash_edit_perm && editMode

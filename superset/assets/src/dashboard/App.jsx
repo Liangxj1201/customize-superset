@@ -37,7 +37,10 @@ setupPlugins();
 const appContainer = document.getElementById('app');
 const bootstrapData = JSON.parse(appContainer.getAttribute('data-bootstrap'));
 initFeatureFlags(bootstrapData.common.feature_flags);
+console.log("bootstrapData: "+JSON.stringify(bootstrapData))
 const initState = getInitialState(bootstrapData);
+
+console.log("initState: "+JSON.stringify(initState))
 
 const store = createStore(
   rootReducer,
@@ -47,7 +50,7 @@ const store = createStore(
     initEnhancer(false),
   ),
 );
-
+console.log("xjliang ...............")
 const App = () => (
   <Provider store={store}>
     <DashboardContainer />

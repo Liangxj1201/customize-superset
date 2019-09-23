@@ -2152,23 +2152,29 @@ class Superset(BaseSupersetView):
             }
         )
 
+        path_url = request.path
+        dash_url = "dashboard_for_matrix"
+        dashboard_html = "superset/dashboard.html"
+        for_matrix = False
+        if dash_url in path_url:
+            dashboard_html = "superset/dashboard_for_matrix.html"
+            for_matrix = True
+
+        print("path_url: "+path_url)
+
         bootstrap_data = {
             "user_id": g.user.get_id(),
             "dashboard_data": dashboard_data,
             "datasources": {ds.uid: ds.data for ds in datasources},
             "common": self.common_bootstrap_payload(),
             "editMode": edit_mode,
+            "forMatrix": for_matrix,
         }
 
         if request.args.get("json") == "true":
             return json_success(json.dumps(bootstrap_data))
 
-        path_url = request.path
-        dash_url = "dashboard_for_matrix"
-        dashboard_html = "superset/dashboard.html"
-        if dash_url in path_url:
-            dashboard_html = "superset/dashboard_for_matrix.html"
-        print("path_url: "+path_url)
+
         return self.render_template(
             dashboard_html,
             entry="dashboard",
